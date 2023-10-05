@@ -1,4 +1,7 @@
 package hexlet.code;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -10,6 +13,7 @@ public class App {
                 Please enter the game number and press Enter
                 1 - Greet
                 2 - Even
+                3 - Calculator
                 0 - Exit""");
 
         System.out.print("Your choice: ");
@@ -21,12 +25,12 @@ public class App {
                 break;
             case 2:
                 Even.checkEven();
+                break;
+            case 3:
+                Calculator.calc();
             case 0:
             default:
                 break;
-
-
-
         }
     }
 }
