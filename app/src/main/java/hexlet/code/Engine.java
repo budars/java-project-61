@@ -16,6 +16,11 @@ public class Engine {
         return name;
     }
 
+    public static void printQuestionAndAnswer(int number1, int number2) {
+        System.out.println("Question: " + number1 + " " + number2);
+        System.out.print("Your answer: ");
+    }
+
     public static void printQuestion(int questionVar) {
         System.out.println("Question: " + questionVar);
     }
@@ -26,10 +31,6 @@ public class Engine {
 
     public static void printAnswer() {
         System.out.print("Your answer: ");
-    }
-
-    public static void printCorrect() {
-        System.out.println("Correct!");
     }
 
     public static void printWrong(int number, int answer) {

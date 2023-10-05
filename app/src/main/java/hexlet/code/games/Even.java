@@ -25,7 +25,7 @@ public class Even {
                 Engine.printWrong(answer, returnYesOrNo(number));
                 break;
             } else if ((checker && answer.equals("yes")) || (!checker && answer.equals("no"))) {
-                Engine.printCorrect();
+                System.out.println("Correct!");;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was'"
                         + returnYesOrNo(number) + "'");
