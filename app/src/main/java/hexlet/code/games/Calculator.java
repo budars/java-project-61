@@ -16,7 +16,7 @@ public class Calculator {
         while (count < Engine.STEPS_IN_GAME) {
             int firstNumber = random.nextInt(20);
             int secondNumber = random.nextInt(20);
-            String question = firstNumber + arrayOfOperators[random.nextInt(3)] + secondNumber;
+            String question = firstNumber + " " + arrayOfOperators[random.nextInt(3)] + " " + secondNumber;
             Engine.printQuestionAndAnswer(question);
             var answer = scanner.nextInt();
 
