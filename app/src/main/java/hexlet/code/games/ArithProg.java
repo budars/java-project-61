@@ -52,10 +52,9 @@ public class ArithProg {
         copiedArray[replacedIndex] = "..";
         StringBuilder builder = new StringBuilder();
         for (String value : copiedArray) {
-            builder.append(" ");
             builder.append(value);
             builder.append(" ");
         }
-        return builder.toString();
+        return builder.toString().trim();
     }
 }
