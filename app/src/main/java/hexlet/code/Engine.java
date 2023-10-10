@@ -43,7 +43,7 @@ public class Engine {
 
     public static void printCongratulations(int counter) {
         if (counter == STEPS_IN_GAME) {
-            System.out.println("Congratulations, " + getName());
+            System.out.println("Congratulations, " + getName() + "!");
         }
     }
 }
