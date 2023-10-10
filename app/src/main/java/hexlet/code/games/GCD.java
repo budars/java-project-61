@@ -10,7 +10,7 @@ public class GCD {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         Engine.greet();
-        System.out.println("Find the greatest common divisor of given numbers");
+        System.out.println("Find the greatest common divisor of given numbers.");
 
         int count = 0;
 
