@@ -25,9 +25,11 @@ public class Calculator {
                     || (question.contains("+") && checkSumRightAnswer(firstNumber, secondNumber, answer))
                     || (question.contains("-") && checkSubtractionRightAnswer(firstNumber, secondNumber, answer))) {
                 System.out.println("Correct!");
+            } else {
+                Engine.printWrong(getRightAnswer(firstNumber, secondNumber, question), answer);
+                break;
             }
-            else {Engine.printWrong(getRightAnswer(firstNumber, secondNumber, question), answer);
-            break;};
+
             count++;
         }
 

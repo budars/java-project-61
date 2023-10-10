@@ -21,6 +21,11 @@ public class Engine {
         System.out.print("Your answer: ");
     }
 
+    public static void printQuestionAndAnswer(String text) {
+        System.out.println("Question: " + text);
+        System.out.print("Your answer: ");
+    }
+
     public static void printQuestion(int questionVar) {
         System.out.println("Question: " + questionVar);
     }

@@ -1,4 +1,5 @@
 package hexlet.code;
+import hexlet.code.games.ArithProg;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
@@ -16,6 +17,7 @@ public class App {
                 2 - Even
                 3 - Calculator
                 4 - GCD
+                5 - Progression
                 0 - Exit""");
 
         System.out.print("Your choice: ");
@@ -32,6 +34,8 @@ public class App {
                 Calculator.calc();
             case 4:
                 GCD.findGcd();
+            case 5:
+                ArithProg.arithmeticGame();
             case 0:
             default:
                 break;

@@ -25,11 +25,10 @@ public class GCD {
 
             if (answer == checkRightAnswer(max, min)) {
                 System.out.println("Correct!");
-            }
-
-            else {
+            } else {
                 Engine.printWrong(checkRightAnswer(max, min), answer);
-                break;}
+                break;
+            }
             count++;
         }
 

@@ -4,4 +4,3 @@ run-dist:
 check-main:
 	gradle checkstyleMain
 
-
