@@ -32,9 +32,7 @@ public class GCD {
             count++;
         }
 
-        if (count == 3) {
-            Engine.printCongratulations();
-        }
+        Engine.printCongratulations(count);
     }
 
     public static int checkRightAnswer(int max, int min) {

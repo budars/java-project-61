@@ -17,8 +17,7 @@ public class Calculator {
             int firstNumber = random.nextInt(20);
             int secondNumber = random.nextInt(20);
             String question = firstNumber + arrayOfOperators[random.nextInt(3)] + secondNumber;
-            Engine.printQuestion(question);
-            Engine.printAnswer();
+            Engine.printQuestionAndAnswer(question);
             var answer = scanner.nextInt();
 
             if (question.contains("*") && checkMultiplicationRightAnswer(firstNumber, secondNumber, answer)
@@ -33,9 +32,7 @@ public class Calculator {
             count++;
         }
 
-        if (count == 3) {
-            Engine.printCongratulations();
-        }
+        Engine.printCongratulations(count);
     }
 
     public static boolean checkMultiplicationRightAnswer(int firstNumber, int secondNumber, int answer) {

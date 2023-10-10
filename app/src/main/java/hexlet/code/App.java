@@ -1,8 +1,5 @@
 package hexlet.code;
-import hexlet.code.games.ArithProg;
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -18,27 +15,21 @@ public class App {
                 3 - Calculator
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
 
         System.out.print("Your choice: ");
         var userChoice = scanner.nextInt();
 
         switch (userChoice) {
-            case 1:
-                Cli.answerName();
-                break;
-            case 2:
-                Even.checkEven();
-                break;
-            case 3:
-                Calculator.calc();
-            case 4:
-                GCD.findGcd();
-            case 5:
-                ArithProg.arithmeticGame();
-            case 0:
-            default:
-                break;
+            case 1 -> Cli.answerName();
+            case 2 -> Even.checkEven();
+            case 3 -> Calculator.calc();
+            case 4 -> GCD.findGcd();
+            case 5 -> ArithProg.arithmeticGame();
+            case 6 -> Prime.isPrime();
+            default -> {
+            }
         }
     }
 }

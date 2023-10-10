@@ -16,35 +16,24 @@ public class Even {
 
         while (count < Engine.STEPS_IN_GAME) {
             var number = random.nextInt(4096);
-            Engine.printQuestion(number);
-            Engine.printAnswer();
+            Engine.printQuestionAndAnswer(number);
             var answer = scanner.nextLine();
             //next variable check number is even or not
             boolean checker = number % 2 == 0;
+            String rightAnswer = checker ? "yes" : "no";
             if ((checker && answer.equals("no")) || (!checker && answer.equals("yes"))) {
-                Engine.printWrong(answer, returnYesOrNo(number));
+                Engine.printWrong(answer, rightAnswer);
                 break;
             } else if ((checker && answer.equals("yes")) || (!checker && answer.equals("no"))) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was'"
-                        + returnYesOrNo(number) + "'");
+                Engine.printWrong(answer, rightAnswer);
                 break;
             }
             count++;
         }
 
         //this conditional statement needs for printing final Congratulations, if loop was fully completed
-        if (count == 3) {
-            Engine.printCongratulations();
-        }
-    }
-
-    //this method i use for wrong answer to don't write if-else code again
-    private static String returnYesOrNo(int number) {
-        if (number % 2 == 0) {
-            return "yes";
-        }
-        return "no";
+        Engine.printCongratulations(count);
     }
 }

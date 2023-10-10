@@ -26,15 +26,8 @@ public class Engine {
         System.out.print("Your answer: ");
     }
 
-    public static void printQuestion(int questionVar) {
-        System.out.println("Question: " + questionVar);
-    }
-
-    public static void printQuestion(String questionVar) {
-        System.out.println("Question: " + questionVar);
-    }
-
-    public static void printAnswer() {
+    public static void printQuestionAndAnswer(int number) {
+        System.out.println("Question: " + number);
         System.out.print("Your answer: ");
     }
 
@@ -48,7 +41,9 @@ public class Engine {
         System.out.println("Let's try again, " + getName() + "!");
     }
 
-    public static void printCongratulations() {
-        System.out.println("Congratulations, " + getName());
+    public static void printCongratulations(int counter) {
+        if (counter == STEPS_IN_GAME) {
+            System.out.println("Congratulations, " + getName());
+        }
     }
 }

@@ -16,25 +16,23 @@ public class ArithProg {
         while (count < Engine.STEPS_IN_GAME) {
             var step = random.nextInt(7);
             var firstElement = random.nextInt(10);
-            var questionStrArray = makeArithProgression(step, firstElement);
-            var replacedIndex = random.nextInt(questionStrArray.length);
-            var censoredStrArray = censoreArithProgressionAndReturnString(replacedIndex, questionStrArray);
+            var givenArray = makeArithProgression(step, firstElement);
+            var replacedIndex = random.nextInt(givenArray.length);
+            var censoredStrArray = returnFinalString(replacedIndex, givenArray);
             Engine.printQuestionAndAnswer(censoredStrArray);
             var answer = scanner.nextLine();
 
-            if (answer.equals(questionStrArray[replacedIndex])) {
+            if (answer.equals(givenArray[replacedIndex])) {
                 System.out.println("Correct!");
             } else {
-                Engine.printWrong(answer, questionStrArray[replacedIndex]);
+                Engine.printWrong(answer, givenArray[replacedIndex]);
                 break;
             }
 
             count++;
         }
 
-        if (count == Engine.STEPS_IN_GAME) {
-            Engine.printCongratulations();
-        }
+        Engine.printCongratulations(count);
     }
 
     public static String[] makeArithProgression(int step, int firstElement) {
@@ -49,7 +47,7 @@ public class ArithProg {
         return strArray;
     }
 
-    public static String censoreArithProgressionAndReturnString(int replacedIndex, String[] strArray) {
+    public static String returnFinalString(int replacedIndex, String[] strArray) {
         var copiedArray = Arrays.copyOf(strArray, strArray.length);
         copiedArray[replacedIndex] = "..";
         StringBuilder builder = new StringBuilder();
