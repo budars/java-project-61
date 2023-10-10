@@ -10,6 +10,7 @@ public class Prime {
     public static void isPrime() {
         var count = 0;
         Engine.greet();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         while (count < Engine.STEPS_IN_GAME) {
             int givenNumber = random.nextInt(174);
