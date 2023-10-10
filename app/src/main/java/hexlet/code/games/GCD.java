@@ -36,6 +36,9 @@ public class GCD {
     }
 
     public static int checkRightAnswer(int max, int min) {
+        if (max == 0 || min == 0) {
+            return 0;
+        }
         int remainder;
         int tmp;
 
