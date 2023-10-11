@@ -10,14 +10,14 @@ public class ArithProg {
     private static Scanner scanner = new Scanner(System.in);
     public static void arithmeticGame() {
         var count = 0;
-        final int STEP_BOUND = 7;
-        final int BOUND_OF_FIRST_ELEMENT = 10;
+        final int stepBound = 7;
+        final int boundOfFirstElement = 10;
         Engine.greet();
         System.out.println("What number is missing in the progression?");
 
         while (count < Engine.STEPS_IN_GAME) {
-            var step = random.nextInt(STEP_BOUND);
-            var firstElement = random.nextInt(BOUND_OF_FIRST_ELEMENT);
+            var step = random.nextInt(stepBound);
+            var firstElement = random.nextInt(boundOfFirstElement);
             var givenArray = makeArithProgression(step, firstElement);
             var replacedIndex = random.nextInt(givenArray.length);
             var censoredStrArray = returnFinalString(replacedIndex, givenArray);
@@ -38,9 +38,9 @@ public class ArithProg {
     }
 
     public static String[] makeArithProgression(int step, int firstElement) {
-        int ORIGIN_OF_NUMBERS_ARRAY = 5;
-        int BOUND_OF_NUMBERS_ARRAY = 11;
-        int[] arrayOfNumbers = new int[random.nextInt(ORIGIN_OF_NUMBERS_ARRAY, BOUND_OF_NUMBERS_ARRAY)];
+        final int originOfLengthNumberArray = 5;
+        final int boundOfLengthNumbersArray = 11;
+        int[] arrayOfNumbers = new int[random.nextInt(originOfLengthNumberArray, boundOfLengthNumbersArray)];
         arrayOfNumbers[0] = firstElement;
         var strArray = new String[arrayOfNumbers.length];
         strArray[0] = String.valueOf(firstElement);

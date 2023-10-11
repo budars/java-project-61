@@ -12,12 +12,12 @@ public class GCD {
         Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        final int BOUND_OF_NUMBER = 100;
+        final int boundOfNumber = 100;
         int count = 0;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(BOUND_OF_NUMBER);
-            int secondNumber = random.nextInt(BOUND_OF_NUMBER);
+            int firstNumber = random.nextInt(boundOfNumber);
+            int secondNumber = random.nextInt(boundOfNumber);
             var max = Math.max(firstNumber, secondNumber);
             var min = Math.min(firstNumber, secondNumber);
 
