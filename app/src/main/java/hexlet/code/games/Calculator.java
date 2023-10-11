@@ -4,19 +4,22 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Calculator {
+    private static Random random = new Random();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void calc() {
         Engine.greet();
         System.out.println("What is the result of the expression?");
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
         String[] arrayOfOperators = {"+", "-", "*"};
+        int maxValueOfNumbers = 20;
+        int indexOfOperatorsArray = 3;
         var count = 0;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(20);
-            int secondNumber = random.nextInt(20);
-            String question = firstNumber + " " + arrayOfOperators[random.nextInt(3)] + " " + secondNumber;
+            int firstNumber = random.nextInt(maxValueOfNumbers);
+            int secondNumber = random.nextInt(maxValueOfNumbers);
+            String question = firstNumber + " " + arrayOfOperators[random.nextInt(indexOfOperatorsArray)]
+                    + " " + secondNumber;
             Engine.printQuestionAndAnswer(question);
             var answer = scanner.nextInt();
 

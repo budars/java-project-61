@@ -5,17 +5,16 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Even {
+    private static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
     public static void checkEven() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        /*greetings. I add again this code in this Class
-        cause I don't know how i can get name from user for phrase "Congratulations, Sam!"*/
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        var count = 0; //Step counter for loop
+        var count = 0;
+        int maxNumberValue = 4096;
 
         while (count < Engine.STEPS_IN_GAME) {
-            var number = random.nextInt(4096);
+            var number = random.nextInt(maxNumberValue);
             Engine.printQuestionAndAnswer(number);
             var answer = scanner.nextLine();
             //next variable check number is even or not

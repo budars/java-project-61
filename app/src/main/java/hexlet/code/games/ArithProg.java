@@ -6,16 +6,18 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class ArithProg {
-    static Random random = new Random();
-    static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
+    private static Scanner scanner = new Scanner(System.in);
     public static void arithmeticGame() {
         var count = 0;
+        int stepMaxExclusive = 7;
+        int firstElementMaxExclusive = 10;
         Engine.greet();
         System.out.println("What number is missing in the progression?");
 
         while (count < Engine.STEPS_IN_GAME) {
-            var step = random.nextInt(7);
-            var firstElement = random.nextInt(10);
+            var step = random.nextInt(stepMaxExclusive);
+            var firstElement = random.nextInt(firstElementMaxExclusive);
             var givenArray = makeArithProgression(step, firstElement);
             var replacedIndex = random.nextInt(givenArray.length);
             var censoredStrArray = returnFinalString(replacedIndex, givenArray);
@@ -36,7 +38,9 @@ public class ArithProg {
     }
 
     public static String[] makeArithProgression(int step, int firstElement) {
-        int[] arrayOfNumbers = new int[random.nextInt(5, 11)];
+        int minLengthArrayOfNumbers = 5;
+        int maxLengthArrayOfNumbers = 11;
+        int[] arrayOfNumbers = new int[random.nextInt(minLengthArrayOfNumbers, maxLengthArrayOfNumbers)];
         arrayOfNumbers[0] = firstElement;
         var strArray = new String[arrayOfNumbers.length];
         strArray[0] = String.valueOf(firstElement);

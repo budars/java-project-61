@@ -5,18 +5,19 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class GCD {
+    private static Random random = new Random();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void findGcd() {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
         Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
 
+        int maxValueExclusive = 100;
         int count = 0;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(100);
-            int secondNumber = random.nextInt(100);
+            int firstNumber = random.nextInt(maxValueExclusive);
+            int secondNumber = random.nextInt(maxValueExclusive);
             var max = Math.max(firstNumber, secondNumber);
             var min = Math.min(firstNumber, secondNumber);
 

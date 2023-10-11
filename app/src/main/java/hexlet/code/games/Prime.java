@@ -4,16 +4,17 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 import java.util.Random;
 public class Prime {
-    static Random random = new Random();
-    static Scanner scanner = new Scanner(System.in);
+    private static Random random = new Random();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void isPrime() {
         var count = 0;
         Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        int maxValueExclusive = 174;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int givenNumber = random.nextInt(174);
+            int givenNumber = random.nextInt(maxValueExclusive);
             Engine.printQuestionAndAnswer(givenNumber);
             String answer = scanner.nextLine();
             boolean checkedPrime = checkPrime(givenNumber);
