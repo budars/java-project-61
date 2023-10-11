@@ -11,14 +11,14 @@ public class Calculator {
         Engine.greet();
         System.out.println("What is the result of the expression?");
         String[] arrayOfOperators = {"+", "-", "*"};
-        int maxValueOfNumbers = 20;
-        int indexOfOperatorsArray = 3;
+        final int BOUND_OF_NUMBERS = 20;
+        final int LENGTH_OF_OPERATORS_ARRAY = 3;
         var count = 0;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(maxValueOfNumbers);
-            int secondNumber = random.nextInt(maxValueOfNumbers);
-            String question = firstNumber + " " + arrayOfOperators[random.nextInt(indexOfOperatorsArray)]
+            int firstNumber = random.nextInt(BOUND_OF_NUMBERS);
+            int secondNumber = random.nextInt(BOUND_OF_NUMBERS);
+            String question = firstNumber + " " + arrayOfOperators[random.nextInt(LENGTH_OF_OPERATORS_ARRAY)]
                     + " " + secondNumber;
             Engine.printQuestionAndAnswer(question);
             var answer = scanner.nextInt();

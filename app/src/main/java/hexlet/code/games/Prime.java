@@ -11,10 +11,10 @@ public class Prime {
         var count = 0;
         Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int maxValueExclusive = 174;
+        final int BOUND_OF_GIVEN_NUMBER = 174;
 
         while (count < Engine.STEPS_IN_GAME) {
-            int givenNumber = random.nextInt(maxValueExclusive);
+            int givenNumber = random.nextInt(BOUND_OF_GIVEN_NUMBER);
             Engine.printQuestionAndAnswer(givenNumber);
             String answer = scanner.nextLine();
             boolean checkedPrime = checkPrime(givenNumber);

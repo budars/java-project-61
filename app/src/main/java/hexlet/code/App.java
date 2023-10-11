@@ -23,15 +23,15 @@ public class App {
                 0 - Exit""");
 
         System.out.print("Your choice: ");
-        var userChoice = scanner.nextInt();
+        var userChoice = scanner.nextLine();
 
         switch (userChoice) {
-            case 1 -> Cli.answerName();
-            case 2 -> Even.checkEven();
-            case 3 -> Calculator.calc();
-            case 4 -> GCD.findGcd();
-            case 5 -> ArithProg.arithmeticGame();
-            case 6 -> Prime.isPrime();
+            case "1" -> Cli.answerName();
+            case "2" -> Even.checkEven();
+            case "3" -> Calculator.calc();
+            case "4" -> GCD.findGcd();
+            case "5" -> ArithProg.arithmeticGame();
+            case "6" -> Prime.isPrime();
             default -> {
             }
         }

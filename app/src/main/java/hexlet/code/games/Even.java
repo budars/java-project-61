@@ -11,10 +11,10 @@ public class Even {
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         var count = 0;
-        int maxNumberValue = 4096;
+        final int BOUND_OF_NUMBER = 4096;
 
         while (count < Engine.STEPS_IN_GAME) {
-            var number = random.nextInt(maxNumberValue);
+            var number = random.nextInt(BOUND_OF_NUMBER);
             Engine.printQuestionAndAnswer(number);
             var answer = scanner.nextLine();
             //next variable check number is even or not
