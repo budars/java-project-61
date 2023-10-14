@@ -1,61 +1,38 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calculator {
-    private static Random random = new Random();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
+    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String GAME_QUESTION = "What is the result of the expression?";
+    private static final String[] ARRAY_OF_OPERATORS = {"+", "-", "*"};
+    private static final int BOUND_OF_NUMBERS = 20;
+    private static final int LENGTH_OF_OPERATORS_ARRAY = 3;
+
 
     public static void calc() {
-        Engine.greet();
-        System.out.println("What is the result of the expression?");
-        String[] arrayOfOperators = {"+", "-", "*"};
-        final int boundOfNumbers = 20;
-        final int lengthOfOperatorsArray = 3;
-        var count = 0;
 
-        while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(boundOfNumbers);
-            int secondNumber = random.nextInt(boundOfNumbers);
-            String question = firstNumber + " " + arrayOfOperators[random.nextInt(lengthOfOperatorsArray)]
+        for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
+            int firstNumber = RANDOM.nextInt(BOUND_OF_NUMBERS);
+            int secondNumber = RANDOM.nextInt(BOUND_OF_NUMBERS);
+            String question = firstNumber + " " + ARRAY_OF_OPERATORS[RANDOM.nextInt(LENGTH_OF_OPERATORS_ARRAY)]
                     + " " + secondNumber;
-            Engine.printQuestionAndAnswer(question);
-            var answer = scanner.nextInt();
-
-            if (question.contains("*") && checkMultiplicationRightAnswer(firstNumber, secondNumber, answer)
-                    || (question.contains("+") && checkSumRightAnswer(firstNumber, secondNumber, answer))
-                    || (question.contains("-") && checkSubtractionRightAnswer(firstNumber, secondNumber, answer))) {
-                System.out.println("Correct!");
-            } else {
-                Engine.printWrong(getRightAnswer(firstNumber, secondNumber, question), answer);
-                break;
-            }
-
-            count++;
+            String rightAnswer = getRightAnswer(firstNumber, secondNumber, question);
+            QUESTION_ARRAY[i] = question;
+            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
         }
 
-        Engine.printCongratulations(count);
+        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
     }
 
-    public static boolean checkMultiplicationRightAnswer(int firstNumber, int secondNumber, int answer) {
-        return firstNumber * secondNumber == answer;
-    }
-
-    public static boolean checkSumRightAnswer(int firstNumber, int secondNumber, int answer) {
-        return firstNumber + secondNumber == answer;
-    }
-
-    public static boolean checkSubtractionRightAnswer(int firstNumber, int secondNumber, int answer) {
-        return firstNumber - secondNumber == answer;
-    }
-
-    public static int getRightAnswer(int firstNumber, int secondNumber, String question) {
+    public static String getRightAnswer(int firstNumber, int secondNumber, String question) {
         if (question.contains("*")) {
-            return firstNumber * secondNumber;
+            return String.valueOf(firstNumber * secondNumber);
         } else if (question.contains("+")) {
-            return firstNumber + secondNumber;
+            return String.valueOf(firstNumber + secondNumber);
         }
-        return firstNumber - secondNumber;
+        return String.valueOf(firstNumber - secondNumber);
     }
 }

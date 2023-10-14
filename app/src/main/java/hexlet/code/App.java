@@ -6,9 +6,6 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 
 import java.util.Scanner;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -29,9 +26,9 @@ public class App {
             case "1" -> Cli.answerName();
             case "2" -> Even.checkEven();
             case "3" -> Calculator.calc();
-            case "4" -> GCD.findGcd();
+            case "4" -> GCD.playGcd();
             case "5" -> ArithProg.arithmeticGame();
-            case "6" -> Prime.isPrime();
+            case "6" -> Prime.primeGame();
             default -> {
             }
         }

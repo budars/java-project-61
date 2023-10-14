@@ -2,45 +2,35 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Arrays;
 
 public class ArithProg {
-    private static Random random = new Random();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
+    private static final String GAME_QUESTION = "What number is missing in the progression?";
+    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final int STEP_BOUND = 7;
+    private static final int BOUND_OF_FIRST_ELEMENT = 10;
+    private static final int ORIGIN_OF_LENGTH_NUMBERS_ARRAY = 5;
+    private static final int BOUND_OF_LENGTH_NUMBERS_ARRAY = 11;
     public static void arithmeticGame() {
-        var count = 0;
-        final int stepBound = 7;
-        final int boundOfFirstElement = 10;
-        Engine.greet();
-        System.out.println("What number is missing in the progression?");
 
-        while (count < Engine.STEPS_IN_GAME) {
-            var step = random.nextInt(stepBound);
-            var firstElement = random.nextInt(boundOfFirstElement);
+        for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
+            int step = RANDOM.nextInt(STEP_BOUND);
+            int firstElement = RANDOM.nextInt(BOUND_OF_FIRST_ELEMENT);
             var givenArray = makeArithProgression(step, firstElement);
-            var replacedIndex = random.nextInt(givenArray.length);
+            var replacedIndex = RANDOM.nextInt(givenArray.length);
+            String rightAnswer = String.valueOf(givenArray[replacedIndex]);
+            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
             var censoredStrArray = returnFinalString(replacedIndex, givenArray);
-            Engine.printQuestionAndAnswer(censoredStrArray);
-            var answer = scanner.nextLine();
-
-            if (answer.equals(givenArray[replacedIndex])) {
-                System.out.println("Correct!");
-            } else {
-                Engine.printWrong(answer, givenArray[replacedIndex]);
-                break;
-            }
-
-            count++;
+            QUESTION_ARRAY[i] = censoredStrArray;
         }
 
-        Engine.printCongratulations(count);
+        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
     }
 
     public static String[] makeArithProgression(int step, int firstElement) {
-        final int originOfLengthNumberArray = 5;
-        final int boundOfLengthNumbersArray = 11;
-        int[] arrayOfNumbers = new int[random.nextInt(originOfLengthNumberArray, boundOfLengthNumbersArray)];
+        int[] arrayOfNumbers = new int[RANDOM.nextInt(ORIGIN_OF_LENGTH_NUMBERS_ARRAY, BOUND_OF_LENGTH_NUMBERS_ARRAY)];
         arrayOfNumbers[0] = firstElement;
         var strArray = new String[arrayOfNumbers.length];
         strArray[0] = String.valueOf(firstElement);

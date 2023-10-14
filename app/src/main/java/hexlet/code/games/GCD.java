@@ -1,39 +1,29 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class GCD {
-    private static Random random = new Random();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
+    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String GAME_QUESTION = "Find the greatest common divisor of given numbers.";
+    private static final int BOUND_OF_NUMBER = 100;
 
-    public static void findGcd() {
-        Engine.greet();
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static void playGcd() {
 
-        final int boundOfNumber = 100;
-        int count = 0;
-
-        while (count < Engine.STEPS_IN_GAME) {
-            int firstNumber = random.nextInt(boundOfNumber);
-            int secondNumber = random.nextInt(boundOfNumber);
+        for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
+            int firstNumber = RANDOM.nextInt(BOUND_OF_NUMBER);
+            int secondNumber = RANDOM.nextInt(BOUND_OF_NUMBER);
+            String question = String.valueOf(firstNumber) + " " + String.valueOf(secondNumber);
+            QUESTION_ARRAY[i] = question;
             var max = Math.max(firstNumber, secondNumber);
             var min = Math.min(firstNumber, secondNumber);
-
-            Engine.printQuestionAndAnswer(firstNumber, secondNumber);
-            var answer = scanner.nextInt();
-
-            if (answer == checkRightAnswer(max, min)) {
-                System.out.println("Correct!");
-            } else {
-                Engine.printWrong(checkRightAnswer(max, min), answer);
-                break;
-            }
-            count++;
+            String rightAnswer = String.valueOf(checkRightAnswer(max, min));
+            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
         }
 
-        Engine.printCongratulations(count);
+        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
     }
 
     public static int checkRightAnswer(int max, int min) {

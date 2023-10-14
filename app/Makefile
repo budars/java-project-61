@@ -4,3 +4,6 @@ run-dist:
 check-main:
 	gradle checkstyleMain
 
+build:
+	gradle installDist
+

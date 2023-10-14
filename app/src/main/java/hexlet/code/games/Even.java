@@ -1,38 +1,28 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Even {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Random random = new Random();
+    private static final Random RANDOM = new Random();
+    private static final String GAME_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final int BOUND_OF_NUMBER = 4096;
     public static void checkEven() {
-        Engine.greet();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        var count = 0;
-        final int boundOfNumber = 4096;
 
-        while (count < Engine.STEPS_IN_GAME) {
-            var number = random.nextInt(boundOfNumber);
-            Engine.printQuestionAndAnswer(number);
-            var answer = scanner.nextLine();
-            //next variable check number is even or not
-            boolean checker = number % 2 == 0;
-            String rightAnswer = checker ? "yes" : "no";
-            if ((checker && answer.equals("no")) || (!checker && answer.equals("yes"))) {
-                Engine.printWrong(answer, rightAnswer);
-                break;
-            } else if ((checker && answer.equals("yes")) || (!checker && answer.equals("no"))) {
-                System.out.println("Correct!");
-            } else {
-                Engine.printWrong(answer, rightAnswer);
-                break;
-            }
-            count++;
+        for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
+            int number = RANDOM.nextInt(BOUND_OF_NUMBER);
+            String question = String.valueOf(number);
+            QUESTION_ARRAY[i] = question;
+            String rightAnswer = isEven(number) ? "yes" : "no";
+            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
         }
 
-        //this conditional statement needs for printing final Congratulations, if loop was fully completed
-        Engine.printCongratulations(count);
+        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
+    }
+
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

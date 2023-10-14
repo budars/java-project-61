@@ -1,39 +1,28 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
 import java.util.Random;
 public class Prime {
-    private static Random random = new Random();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
+    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
+    private static final String GAME_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int BOUND_OF_GIVEN_NUMBER = 174;
 
-    public static void isPrime() {
-        var count = 0;
-        Engine.greet();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        final int boundOfGiverNumber = 174;
+    public static void primeGame() {
 
-        while (count < Engine.STEPS_IN_GAME) {
-            int givenNumber = random.nextInt(boundOfGiverNumber);
-            Engine.printQuestionAndAnswer(givenNumber);
-            String answer = scanner.nextLine();
-            boolean checkedPrime = checkPrime(givenNumber);
-            String rightAnswer = checkedPrime ? "yes" : "no";
-
-            if ((answer.equalsIgnoreCase("yes") && checkedPrime)
-                    || (answer.equalsIgnoreCase("no")) && !checkedPrime) {
-                System.out.println("Correct!");
-            } else {
-                Engine.printWrong(answer, rightAnswer);
-                break;
-            }
-            count++;
+        for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
+            int givenNumber = RANDOM.nextInt(BOUND_OF_GIVEN_NUMBER);
+            String question = String.valueOf(givenNumber);
+            QUESTION_ARRAY[i] = question;
+            String rightAnswer = isPrime(givenNumber) ? "yes" : "no";
+            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
         }
 
-        Engine.printCongratulations(count);
+        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
     }
 
-    public static boolean checkPrime(int number) {
+    public static boolean isPrime(int number) {
         if (number == 1) {
             return true;
         }
