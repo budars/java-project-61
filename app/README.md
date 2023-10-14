@@ -15,4 +15,12 @@
 [![asciicast]({https://asciinema.org/a/41HLETq0Ih4eeKb8AJVfe9D0p})]({https://asciinema.org/a/41HLETq0Ih4eeKb8AJVfe9D0p})
 [![asciicast]({https://asciinema.org/a/8X19cC3EAE6CPmPNnkLTFVIhT})]({https://asciinema.org/a/8X19cC3EAE6CPmPNnkLTFVIhT})
 [![asciicast]({https://asciinema.org/a/40JIuTXsyFhUuBhTsq1mytr6y})]({https://asciinema.org/a/40JIuTXsyFhUuBhTsq1mytr6y})
+
+https://asciinema.org/a/oADDkiwaZDVikGZiBo4r35qEB
+https://asciinema.org/a/PdVCUbv2CSPvmhr7xhkvi9VCb
+https://asciinema.org/a/FYWEdMsY4KzmmhwzlFLZZTUXz
+https://asciinema.org/a/41HLETq0Ih4eeKb8AJVfe9D0p
+https://asciinema.org/a/8X19cC3EAE6CPmPNnkLTFVIhT
+https://asciinema.org/a/40JIuTXsyFhUuBhTsq1mytr6y
+
 git
