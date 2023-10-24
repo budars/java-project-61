@@ -1,29 +1,26 @@
 package hexlet.code.games;
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
-    private static final Random RANDOM = new Random();
-    private static final String[] QUESTION_ARRAY = new String[Engine.STEPS_IN_GAME];
-    private static final String[] RIGHT_ANSWER_ARRAY = new String[Engine.STEPS_IN_GAME];
     private static final String GAME_QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int BOUND_OF_NUMBER = 100;
+    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
     public static void playGcd() {
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
-            int firstNumber = RANDOM.nextInt(BOUND_OF_NUMBER);
-            int secondNumber = RANDOM.nextInt(BOUND_OF_NUMBER);
+            int firstNumber = Utils.getRandomInt(BOUND_OF_NUMBER);
+            int secondNumber = Utils.getRandomInt(BOUND_OF_NUMBER);
             String question = String.valueOf(firstNumber) + " " + String.valueOf(secondNumber);
-            QUESTION_ARRAY[i] = question;
+            questionsAndAnswers[i][Engine.QUESTION_INDEX] = question;
             var max = Math.max(firstNumber, secondNumber);
             var min = Math.min(firstNumber, secondNumber);
             String rightAnswer = String.valueOf(checkRightAnswer(max, min));
-            RIGHT_ANSWER_ARRAY[i] = rightAnswer;
+            questionsAndAnswers[i][Engine.ANSWER_INDEX] = rightAnswer;
         }
 
-        Engine.doEngine(GAME_QUESTION, QUESTION_ARRAY, RIGHT_ANSWER_ARRAY);
+        Engine.doEngine(GAME_QUESTION, questionsAndAnswers);
     }
 
     public static int checkRightAnswer(int max, int min) {
