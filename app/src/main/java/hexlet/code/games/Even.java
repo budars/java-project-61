@@ -2,8 +2,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Random;
-
 public class Even {
     private static final String GAME_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int BOUND_OF_NUMBER = 4096;
