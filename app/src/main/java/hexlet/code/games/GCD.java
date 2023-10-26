@@ -12,7 +12,7 @@ public class GCD {
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int firstNumber = Utils.getRandomInt(BOUND_OF_NUMBER);
             int secondNumber = Utils.getRandomInt(BOUND_OF_NUMBER);
-            String question = String.valueOf(firstNumber) + " " + String.valueOf(secondNumber);
+            String question = firstNumber + " " + secondNumber;
             questionsAndAnswers[i][Engine.QUESTION_INDEX] = question;
             var max = Math.max(firstNumber, secondNumber);
             var min = Math.min(firstNumber, secondNumber);
@@ -24,8 +24,8 @@ public class GCD {
     }
 
     public static int checkRightAnswer(int max, int min) {
-        if (max == 0 || min == 0) {
-            return 0;
+        if (min == 0) {
+            return max;
         }
         int remainder;
         int tmp;
