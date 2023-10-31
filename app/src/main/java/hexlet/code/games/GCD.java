@@ -5,9 +5,9 @@ import hexlet.code.Utils;
 public class GCD {
     private static final String GAME_QUESTION = "Find the greatest common divisor of given numbers.";
     private static final int BOUND_OF_NUMBER = 100;
-    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
     public static void playGcd() {
+        String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int firstNumber = Utils.getRandomInt(BOUND_OF_NUMBER);

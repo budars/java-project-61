@@ -5,9 +5,9 @@ import hexlet.code.Utils;
 public class Prime {
     private static final String GAME_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int BOUND_OF_GIVEN_NUMBER = 174;
-    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
     public static void primeGame() {
+        String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int givenNumber = Utils.getRandomInt(BOUND_OF_GIVEN_NUMBER);

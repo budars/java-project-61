@@ -5,8 +5,8 @@ import hexlet.code.Utils;
 public class Even {
     private static final String GAME_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int BOUND_OF_NUMBER = 4096;
-    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
     public static void checkEven() {
+        String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int number = Utils.getRandomInt(BOUND_OF_NUMBER);

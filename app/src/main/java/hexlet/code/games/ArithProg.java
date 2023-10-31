@@ -2,16 +2,14 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-
 public class ArithProg {
     private static final String GAME_QUESTION = "What number is missing in the progression?";
     private static final int STEP_BOUND = 7;
     private static final int BOUND_OF_FIRST_ELEMENT = 10;
     private static final int ORIGIN_OF_LENGTH_NUMBERS_ARRAY = 5;
     private static final int BOUND_OF_LENGTH_NUMBERS_ARRAY = 11;
-    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
     public static void arithmeticGame() {
+        String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int step = Utils.getRandomInt(STEP_BOUND);
@@ -41,13 +39,7 @@ public class ArithProg {
     }
 
     public static String returnFinalString(int replacedIndex, String[] strArray) {
-        var copiedArray = Arrays.copyOf(strArray, strArray.length);
-        copiedArray[replacedIndex] = "..";
-        StringBuilder builder = new StringBuilder();
-        for (String value : copiedArray) {
-            builder.append(value);
-            builder.append(" ");
-        }
-        return builder.toString().trim();
+        strArray[replacedIndex] = "..";
+        return String.join(" ", strArray);
     }
 }

@@ -3,7 +3,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calculator {
-    private static String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
     private static final String GAME_QUESTION = "What is the result of the expression?";
     private static final String[] ARRAY_OF_OPERATORS = {"+", "-", "*"};
     private static final int BOUND_OF_NUMBERS = 20;
@@ -11,6 +10,7 @@ public class Calculator {
 
 
     public static void calc() {
+        String[][] questionsAndAnswers = new String[Engine.STEPS_IN_GAME][Engine.QUESTION_AND_ANSWER];
 
         for (var i = 0; i < Engine.STEPS_IN_GAME; i++) {
             int firstNumber = Utils.getRandomInt(BOUND_OF_NUMBERS);
@@ -25,12 +25,14 @@ public class Calculator {
         Engine.doEngine(GAME_QUESTION, questionsAndAnswers);
     }
 
-    public static int getRightAnswer(int firstNumber, int secondNumber, String question) {
+    public static Object getRightAnswer(int firstNumber, int secondNumber, String question) {
         if (question.contains("*")) {
             return firstNumber * secondNumber;
         } else if (question.contains("+")) {
             return firstNumber + secondNumber;
+        } else if (question.contains("-")) {
+            return firstNumber - secondNumber;
         }
-        return firstNumber - secondNumber;
+        return null;
     }
 }

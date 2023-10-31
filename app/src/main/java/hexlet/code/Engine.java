@@ -2,13 +2,13 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static Scanner scanner = new Scanner(System.in);
     public static final int STEPS_IN_GAME = 3;
     public static final int QUESTION_AND_ANSWER = 2;
     public static final int QUESTION_INDEX = 0;
     public static final int ANSWER_INDEX = 1;
 
     public static void doEngine(String gameQuestion, String[][] questionsAndAnswers) {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "!");
